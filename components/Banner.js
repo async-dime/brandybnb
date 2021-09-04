@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
       <Image
-        src="https://res.cloudinary.com/dibk4okej/image/upload/v1630636981/2560x1600-brandybnb-adventure_l2uibu.jpg"
+        src="https://bit.ly/2WQgD8R"
         layout="fill"
         objectFit="cover"
       />
