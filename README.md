@@ -13,8 +13,6 @@ This build is a clone of [Airbnb](https://www.airbnb.com/).
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`with-tailwindcss`](https://tailwindcss.com/docs/guides/nextjs).
 
-Built by the guidance of [PAPAReact](https://github.com/sonnysangha) in [Airbnb challenge](https://www.youtube.com/watch?v=ifcODOhSH1o&list=PLf16UKl7nR5AOGvcX_WtjqXMge-a1B1Lo)
-
 ## Getting Started
 
 First, run the development server:
