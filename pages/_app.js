@@ -3,7 +3,8 @@ import ProgressBar from '@badrap/bar-of-progress';
 import 'tailwindcss/tailwind.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-import '@/styles/global.css';
+import '@/styles/global.css'
+import '@/styles/mapbox-gl.css'
 
 const progress = new ProgressBar({
   size: 4,
