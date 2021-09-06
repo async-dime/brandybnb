@@ -3,6 +3,7 @@
 > Brandybnb - Find holiday rentals, cabins, beach houses, unique homes and experiences around the world
 
 This build is a clone of [Airbnb](https://www.airbnb.com/).
+
 ### [Live Site](https://brandybnb.vercel.app/)
 
 ## Built Using
@@ -10,6 +11,7 @@ This build is a clone of [Airbnb](https://www.airbnb.com/).
 - [Next.js](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Vercel](https://vercel.com)
+- [Mapbox](https://www.mapbox.com/)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`with-tailwindcss`](https://tailwindcss.com/docs/guides/nextjs).
 
