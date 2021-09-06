@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
+import { DateRangePicker } from 'react-date-range';
 import {
   GlobeAltIcon,
   MenuIcon,
@@ -7,10 +8,7 @@ import {
   UsersIcon,
   SearchIcon
 } from '@heroicons/react/solid';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
-import { DateRangePicker } from 'react-date-range';
-import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 
 const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState('');
@@ -67,17 +65,18 @@ const Header = ({ placeholder }) => {
           className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
           placeholder={placeholder || 'Start your search'}
+
         />
-        <SearchIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
+        <SearchIcon className="hidden md:inline-flex h-8 rounded-full p-2 cursor-pointer md:mx-2 text-white hover:text-red-400 bg-red-400 hover:bg-white hover:shadow-lg transition duration-300 ease-in-out" />
       </div>
 
       <div className="flex items-center space-x-4 justify-end text-gray-500">
         <p className="hidden md:inline">Become a host</p>
-        <GlobeAltIcon className="h-6 cursor-pointer" />
+        <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out"/>
 
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
-          <MenuIcon className="h-6 cursor-pointer" />
-          <UserCircleIcon className="h-6 cursor-pointer" />
+        <div className="flex items-center space-x-2 border-2 p-2 rounded-full hover:shadow-lg transition duration-300 ease-in-out">
+          <MenuIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out" />
+          <UserCircleIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out" />
         </div>
       </div>
 
@@ -106,7 +105,10 @@ const Header = ({ placeholder }) => {
             <button className="flex-grow text-gray-400" onClick={resetInput}>
               Cancel
             </button>
-            <button onClick={search} className="flex-grow text-red-400">
+            <button
+              onClick={search}
+              className="flex-grow text-red-400"
+            >
               Search
             </button>
           </div>
