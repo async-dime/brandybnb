@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Script from 'next/script';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
@@ -10,13 +9,6 @@ import MediumCard from '@/components/MediumCard';
 export default function Home({ exploreData, liveAnywhereData }) {
   return (
     <div>
-      <Head>
-        <title>
-          Brandybnb - Find holiday rentals, cabins, beach houses, unique homes
-          and experiences around the world
-        </title>
-        <link rel="icon" href="/logo.svg" />
-      </Head>
       <Header />
       <Banner />
       <main className="max-w-7xl mx-auto px-8 my-2 sm:px-16">

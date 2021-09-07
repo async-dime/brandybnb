@@ -1,16 +1,20 @@
 import { format } from 'date-fns';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
 
 import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import InfoCard from '@/components/InfoCard';
-import { StarIcon } from "@heroicons/react/solid";
+import { StarIcon } from '@heroicons/react/solid';
 import { StarIcon as StarIconOutline } from '@heroicons/react/outline';
 
 const Search = ({ searchResults }) => {
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
+
+  const title = `Brandybnb - Search in ${location}`;
+  const url = `https://brandybnb.vercel.app/search`;
 
   const formattedStartDate = format(new Date(startDate), 'dd MMMM yy');
   const formattedEndDate = format(new Date(endDate), 'dd MMMM yy');
@@ -37,12 +41,24 @@ const Search = ({ searchResults }) => {
 
   return (
     <div>
-      <Header placeholder={`${location} - ${range} - ${noOfGuests}`} />
+      <NextSeo
+        title={title}
+        canonical={url}
+        openGraph={{
+          url,
+          title
+        }}
+      />
+      <Header
+        placeholder={`${location} - ${range} - ${noOfGuests} ${
+          noOfGuests == 1 ? 'guest' : 'guests'
+        }`}
+      />
 
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
-            300+ Stays | {range} | for {noOfGuests} guests
+            300+ Stays | {range} | for {noOfGuests} {noOfGuests == 1 ? "guest" : "guests"}
           </p>
           <h1 className="text-3xl font-semibold mt-2 mb-6">
             Stays in {location}
@@ -63,10 +79,7 @@ const Search = ({ searchResults }) => {
         </section>
 
         <section className="hidden sm:grid xl:inline-flex xl:min-w-[600px]">
-          <Map
-            rating={starRating}
-            searchResults={searchResults}
-          />
+          <Map rating={starRating} searchResults={searchResults} />
         </section>
       </main>
 
