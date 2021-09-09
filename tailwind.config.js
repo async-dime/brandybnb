@@ -1,7 +1,11 @@
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US'
+  },
   theme: {
     extend: {
       keyframes: {
@@ -22,7 +26,17 @@ module.exports = {
     }
   },
   variants: {
-    extend: {}
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+      inset: ['checked'],
+      zIndex: ['hover', 'active'],
+      backgroundColor: ['dark'],
+      textColor: ['dark'],
+    }
   },
-  plugins: [require('tailwind-scrollbar-hide')]
+  plugins: [require('tailwind-scrollbar-hide')],
+  future: {
+    purgeLayersByDefault: true
+  }
 };
