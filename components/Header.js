@@ -65,18 +65,17 @@ const Header = ({ placeholder }) => {
           className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
           placeholder={placeholder || 'Start your search'}
-
         />
-        <SearchIcon className="hidden md:inline-flex h-8 rounded-full p-2 cursor-pointer md:mx-2 text-white hover:text-red-400 bg-red-400 hover:bg-white hover:shadow-lg transition duration-300 ease-in-out" />
+        <SearchIcon className="hidden md:inline-flex h-8 rounded-full p-2 cursor-pointer md:mx-2 text-white hover:text-red-400 bg-red-400 hover:bg-white hover:shadow-lg transition duration-300 ease-in-out button-clicked" />
       </div>
 
       <div className="flex items-center space-x-4 justify-end text-gray-500">
         <p className="hidden md:inline">Become a host</p>
-        <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out"/>
+        <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
 
         <div className="flex items-center space-x-2 border-2 p-2 rounded-full hover:shadow-lg transition duration-300 ease-in-out">
-          <MenuIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out" />
-          <UserCircleIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out" />
+          <MenuIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
+          <UserCircleIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
         </div>
       </div>
 
@@ -102,12 +101,15 @@ const Header = ({ placeholder }) => {
             />
           </div>
           <div className="flex">
-            <button className="flex-grow text-gray-400" onClick={resetInput}>
+            <button
+              className="flex-grow text-gray-400 active:text-gray-600 button-clicked"
+              onClick={resetInput}
+            >
               Cancel
             </button>
             <button
               onClick={search}
-              className="flex-grow text-red-400"
+              className="flex-grow text-red-400 active:text-red-600 button-clicked"
             >
               Search
             </button>
