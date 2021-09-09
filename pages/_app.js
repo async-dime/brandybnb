@@ -6,11 +6,12 @@ import 'tailwindcss/tailwind.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
-import '@/styles/global.css';
-import '@/styles/mapbox-gl.css';
-
 import SEO from 'next-seo.config';
 import { DefaultSeo } from 'next-seo';
+
+import '@/styles/global.css';
+import '@/styles/mapbox-gl.css';
+import { AuthProvider } from '@/lib/auth';
 
 
 const progress = new ProgressBar({
@@ -26,10 +27,10 @@ Router.events.on('routeChangeError', progress.finish);
 
 const App = ({ Component, pageProps }) => {
   return (
-    <>
+    <AuthProvider>
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />;
-    </>
+    </AuthProvider>
   );
 };
 
