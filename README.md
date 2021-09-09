@@ -6,12 +6,22 @@ This build is a clone of [Airbnb](https://www.airbnb.com/).
 
 ### [Live Site](https://brandybnb.vercel.app/)
 
+## Environment Variables
+
+```
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
+```
+
 ## Built Using
 
 - [Next.js](https://nextjs.org/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Vercel](https://vercel.com)
 - [Mapbox](https://www.mapbox.com/)
+- [Firebase](https://firebase.com)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`with-tailwindcss`](https://tailwindcss.com/docs/guides/nextjs).
 
