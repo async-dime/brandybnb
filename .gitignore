@@ -34,4 +34,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# workspace settings
 .vscode
+
+# tests
+*tests
