@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -44,11 +43,6 @@ export default function Home({ exploreData, liveAnywhereData }) {
       </main>
 
       <Footer />
-
-      <Script
-        src="https://embed.tawk.to/6136482f649e0a0a5cd4e34a/1feu0jvkj"
-        strategy="lazyOnload"
-      />
     </div>
   );
 }

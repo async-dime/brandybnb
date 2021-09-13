@@ -46,7 +46,8 @@ const Header = ({ placeholder }) => {
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
-      <div
+      <a
+        href="/"
         onClick={() => router.push('/')}
         className="relative h-10 flex items-center my-auto cursor-pointer"
       >
@@ -56,7 +57,7 @@ const Header = ({ placeholder }) => {
           objectFit="contain"
           objectPosition="left"
         />
-      </div>
+      </a>
 
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
@@ -70,7 +71,9 @@ const Header = ({ placeholder }) => {
       </div>
 
       <div className="flex items-center space-x-4 justify-end text-gray-500">
-        <p className="hidden md:inline">Become a host</p>
+        <p className="hidden md:inline cursor-pointer hover:text-red-400 hover:font-bold transition duration-300 ease-in-out button-clicked">
+          Become a host
+        </p>
         <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
 
         <div className="flex items-center space-x-2 border-2 p-2 rounded-full hover:shadow-lg transition duration-300 ease-in-out">

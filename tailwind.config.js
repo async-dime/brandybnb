@@ -1,7 +1,7 @@
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'media', 
   i18n: {
     locales: ['en-US'],
     defaultLocale: 'en-US'
@@ -22,7 +22,10 @@ module.exports = {
       },
       animation: {
         bounces: 'bounces 1s ease-in-out infinite'
-      }
+      },
+      backgroundImage: theme => ({
+        'auth-screen': "url('https://bit.ly/2WQgD8R')",
+       })
     }
   },
   variants: {
