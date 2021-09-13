@@ -14,10 +14,7 @@ class MyDocument extends Document {
           />
           <link href="/favicon.ico" rel="shortcut icon" />
           <link href="/site.webmanifest" rel="manifest" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com/"
