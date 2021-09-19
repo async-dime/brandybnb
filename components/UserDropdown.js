@@ -65,7 +65,7 @@ const UserDropdown = () => {
         </>
       ) : (
         <Menu>
-          <Menu.Button className="inline-flex justify-center p-1 text-sm font-medium">
+          <Menu.Button className="inline-flex justify-center text-sm font-medium bg-white focus:outline-none p-3 hover:bg-gray-100 button-custom">
             <Link href="/dashboard">
               <a>
                 <UserCircleIcon aria-hidden="true" className="h-6" />
