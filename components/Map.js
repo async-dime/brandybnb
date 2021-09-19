@@ -73,6 +73,7 @@ const Map = ({ searchResults, rating }) => {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-t-lg"
+                    alt={result.title}
                   />
                   <h3 className="absolute bottom-0 right-0 font-semibold text-white text-sm px-3 py-1 bg-gray-700">
                     {result.price}

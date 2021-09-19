@@ -2,11 +2,14 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { useRouter } from 'next/dist/client/router';
 
+import Image from 'next/image';
+import { getCloudinaryPic } from './api/cloudinaryPic';
+
 import Page from '@/components/Page';
 import LoginButtons from '@/components/LoginButtons';
 
-const Dashboard = () => {
-  let [isOpen, setIsOpen] = useState(true);
+const Dashboard = ({ cloudinaryPic }) => {
+  let [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   function closeModal() {
@@ -16,13 +19,28 @@ const Dashboard = () => {
   function openModal() {
     setIsOpen(true);
   }
+
   return (
-    <div>
-      <div className="relative min-h-screen  grid bg-red-400 ">
+    <Page name="Dashboard" path="/dashboard">
+      <div className="relative min-h-screen grid bg-red-400 ">
         <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 ">
-          <div className="relative sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden  text-white bg-no-repeat bg-cover bg-auth-screen">
-            <div className="absolute bg-black  opacity-25 inset-0 z-0"></div>
-            <div className="w-full lg:max-w-2xl md:max-w-md z-10 items-center text-center ">
+          <div className="relative sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden text-white ">
+            {cloudinaryPic.map((picture, idx) => (
+              <Image
+                key={idx}
+                className="bg-no-repeat bg-cover z-0"
+                src={picture.large}
+                alt="Air balloon experiences"
+                placeholder="blur"
+                blurDataURL={`data:image/jpeg;base64,${picture.small}`}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            ))}
+
+            <div className="absolute bg-black opacity-25 inset-0 z-10"></div>
+            <div className="w-full lg:max-w-2xl md:max-w-md z-20 items-center text-center">
               <div className="font-bold leading-tight mb-6 mx-auto w-full content-center items-center">
                 <a href="/" onClick={() => router.push('/')}>
                   <svg
@@ -128,7 +146,7 @@ const Dashboard = () => {
                     onClick={openModal}
                     className="mt-10 flex justify-center items-center text-purple-500 bg-white px-10 py-4 shadow-md rounded-full font-extrabold my-3 hover:shadow-xl button-clicked"
                   >
-                    Join or Sign Up
+                    Login or Sign Up
                   </button>
                 </div>
                 <div className="flex items-center justify-center mt-6">
@@ -142,6 +160,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
+              {/* Modal */}
               <Transition appear show={isOpen} as={Fragment}>
                 <Dialog
                   as="div"
@@ -186,6 +205,7 @@ const Dashboard = () => {
                         <div className=" w-full border-b leading-4 mt-4 mb-6 bg-gray-200 text-center align-middle" />
 
                         <LoginButtons />
+
                         <div className="mt-4">
                           <button
                             type="button"
@@ -210,14 +230,16 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Page>
   );
 };
 
-const DashboardPage = () => (
-  <Page name="Dashboard" path="/dashboard">
-    <Dashboard />
-  </Page>
-);
+export default Dashboard;
 
-export default DashboardPage;
+export async function getStaticProps() {
+  const cloudinaryPic = await getCloudinaryPic('background-image-large');
+
+  return {
+    props: { cloudinaryPic }
+  };
+}

@@ -5,11 +5,13 @@ import LargeCard from '@/components/LargeCard';
 import SmallCard from '@/components/SmallCard';
 import MediumCard from '@/components/MediumCard';
 
-export default function Home({ exploreData, liveAnywhereData }) {
+import { getCloudinaryPic } from './api/cloudinaryPic';
+
+export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
   return (
     <div>
       <Header />
-      <Banner />
+      <Banner bgPicture={cloudinaryPic} />
       <main className="max-w-7xl mx-auto px-8 my-2 sm:px-16">
         <section className="pt-10">
           <h2 className="text-4xl font-semibold pb-4">Explore nearby</h2>
@@ -56,10 +58,13 @@ export async function getStaticProps() {
     (res) => res.json()
   );
 
+  const cloudinaryPic = await getCloudinaryPic('background-image-large');
+
   return {
     props: {
       exploreData,
-      liveAnywhereData
+      liveAnywhereData,
+      cloudinaryPic
     }
   };
 }
