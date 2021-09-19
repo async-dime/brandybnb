@@ -1,10 +1,24 @@
 import Image from 'next/image';
 
-const Banner = () => {
+const Banner = ({ bgPicture }) => {
   return (
     <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
-      <Image src="https://bit.ly/2WQgD8R" alt="Brandybnb banner" layout="fill" objectFit="cover" />
-      <div className="absolute top-1/2 w-full text-center">
+      {bgPicture.map((picture, idx) => (
+        <Image
+          key={idx}
+          className="bg-no-repeat bg-cover z-0"
+          src={picture.large}
+          alt="Brandybnb banner"
+          placeholder="blur"
+          blurDataURL={`data:image/jpeg;base64,${picture.small}`}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      ))}
+
+      <div className="absolute bg-black opacity-25 inset-0 z-10"></div>
+      <div className="absolute top-1/2 w-full text-center z-20">
         <p className="text-sm sm:text-lg font-medium">
           Not sure where to go? Perfect.
         </p>

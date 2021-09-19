@@ -12,6 +12,8 @@
     "@badrap/bar-of-progress": "^0.1.2",
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
+    "base64-arraybuffer": "^1.0.1",
+    "cloudinary": "^1.27.0",
     "date-fns": "^2.23.0",
     "firebase": "^7.17.1",
     "geolib": "^3.3.1",
