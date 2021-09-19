@@ -1,14 +1,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { DateRangePicker } from 'react-date-range';
-import {
-  GlobeAltIcon,
-  MenuIcon,
-  UserCircleIcon,
-  UsersIcon,
-  SearchIcon
-} from '@heroicons/react/solid';
+import { GlobeAltIcon, UsersIcon, SearchIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
+import UserDropdown from './UserDropdown';
 
 const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState('');
@@ -56,6 +51,7 @@ const Header = ({ placeholder }) => {
           layout="fill"
           objectFit="contain"
           objectPosition="left"
+          alt="Brandybnb logo"
         />
       </a>
 
@@ -70,16 +66,14 @@ const Header = ({ placeholder }) => {
         <SearchIcon className="hidden md:inline-flex h-8 rounded-full p-2 cursor-pointer md:mx-2 text-white hover:text-red-400 bg-red-400 hover:bg-white hover:shadow-lg transition duration-300 ease-in-out button-clicked" />
       </div>
 
-      <div className="flex items-center space-x-4 justify-end text-gray-500">
-        <p className="hidden md:inline cursor-pointer hover:text-red-400 hover:font-bold transition duration-300 ease-in-out button-clicked">
-          Become a host
-        </p>
-        <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
-
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full hover:shadow-lg transition duration-300 ease-in-out">
-          <MenuIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
-          <UserCircleIcon className="h-6 cursor-pointer hover:text-red-400 transition duration-300 ease-in-out button-clicked" />
+      <div className="flex items-center space-x-1 justify-end text-gray-500">
+        <div className="p-3 hover:bg-gray-100 button-custom">
+          <p className="hidden md:inline">Become a host</p>
         </div>
+        <div className="p-3 hover:bg-gray-100 button-custom">
+          <GlobeAltIcon className="h-6" />
+        </div>
+        <UserDropdown />
       </div>
 
       {searchInput && (
