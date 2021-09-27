@@ -10,6 +10,9 @@
     @apply active:scale-90 transition duration-150;
   }
   .button-custom {
-    @apply cursor-pointer hover:text-red-400 hover:shadow-sm rounded-full transition duration-300 ease-in-out button-clicked;
+    @apply cursor-pointer hover:shadow-sm hover:bg-opacity-5 hover:bg-gray-100 rounded-full transition duration-300 ease-in-out button-clicked;
+  }
+  .button-header {
+    @apply rounded-full hover:shadow-lg hover:text-red-400;
   }
 }
