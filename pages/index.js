@@ -10,7 +10,7 @@ import { getCloudinaryPic } from './api/cloudinaryPic';
 export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
   return (
     <div>
-      <Header />
+      <Header page="Index"/>
       <Banner bgPicture={cloudinaryPic} />
       <main className="max-w-7xl mx-auto px-8 my-2 sm:px-16">
         <section className="pt-10">

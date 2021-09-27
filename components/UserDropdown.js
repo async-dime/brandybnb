@@ -13,13 +13,13 @@ const UserDropdown = () => {
     <>
       {user ? (
         <>
-          <Menu as="div" className="relative inline-flex">
-            <Menu.Button className="flex items-center justify-center text-sm font-medium bg-white focus:outline-none space-x-2 p-2 border-2 hover:shadow-lg button-custom">
-              <MenuIcon className="h-6" />
+          <Menu as="div" className="relative flex">
+            <Menu.Button className="flex items-center justify-center text-sm font-medium bg-transparent focus:outline-none space-x-0 sm:space-x-1 p-2 border-2 button-custom">
+              <MenuIcon className="h-6 w-6"/>
               <img
                 src={user?.photoUrl}
                 alt="Picture of the user"
-                class="mx-auto object-fill rounded-full h-6 w-6 "
+                class="mx-auto object-fill rounded-full h-6 w-6"
               />
             </Menu.Button>
             <Transition
@@ -40,7 +40,7 @@ const UserDropdown = () => {
                         className={`${
                           active
                             ? 'bg-violet-500 text-red-400'
-                            : 'text-gray-900'
+                            : 'text-gray-500'
                         } group flex rounded-md items-center px-1 py-2 text-sm`}
                       >
                         {active ? (
@@ -68,7 +68,7 @@ const UserDropdown = () => {
           <Menu.Button className="inline-flex justify-center text-sm font-medium bg-white focus:outline-none p-3 hover:bg-gray-100 button-custom">
             <Link href="/dashboard">
               <a>
-                <UserCircleIcon aria-hidden="true" className="h-6" />
+                <UserCircleIcon aria-hidden="true" className="h-6 text-gray-500" />
               </a>
             </Link>
           </Menu.Button>

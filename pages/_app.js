@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { AuthProvider } from '@/lib/auth';
 import { DefaultSeo } from 'next-seo';
 import SEO from 'next-seo.config';
+
 import ProgressBar from '@/components/ProgressBar';
 
 import 'tailwindcss/tailwind.css';
