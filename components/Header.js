@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { DateRangePicker, DateRange } from 'react-date-range';
 import {
+  CheckIcon as ValidSearchIcon,
   GlobeAltIcon,
-  UsersIcon,
   SearchIcon,
+  UsersIcon,
   XIcon
 } from '@heroicons/react/solid';
 import Image from 'next/image';
@@ -48,6 +49,7 @@ const Header = ({ placeholder, page }) => {
 
   const [searchStatus, setSearchStatus] = useState(false);
   const [scroll, setScroll] = useState(false);
+  const toggleSearchStatus = () => setSearchStatus(!searchStatus);
 
   useEffect(() => {
     const onScroll = () => {
@@ -67,7 +69,7 @@ const Header = ({ placeholder, page }) => {
   }`;
 
   return (
-    <header className="fixed w-screen top-0 z-50">
+    <header className="sticky w-screen top-0 z-50">
       <div
         className={
           !searchStatus
@@ -118,13 +120,21 @@ const Header = ({ placeholder, page }) => {
             type="text"
             placeholder={placeholder || 'Start your search'}
           />
-          <SearchIcon
-            className={
-              !searchStatus
-                ? 'hidden md:inline-flex h-8 bg-red-400 hover:bg-white text-white hover:text-red-400 rounded-full p-2 cursor-pointer md:mx-2 hover:shadow-lg button-clicked'
-                : 'inline-flex h-8 bg-red-400 hover:bg-white text-white hover:text-red-400 rounded-full p-2 cursor-pointer mx-2 hover:shadow-lg button-clicked'
-            }
-          />
+          {searchInput ? (
+            <ValidSearchIcon
+              onClick={search}
+              className="inline-flex mx-2 button-search-header"
+            />
+          ) : (
+            <SearchIcon
+              onClick={toggleSearchStatus}
+              className={
+                !searchStatus
+                  ? 'hidden md:inline-flex md:mx-2 button-clicked button-search-header '
+                  : 'inline-flex mx-2 button-clicked button-search-header '
+              }
+            />
+          )}
         </div>
 
         {/* Right - Icons */}
@@ -138,7 +148,9 @@ const Header = ({ placeholder, page }) => {
           {searchStatus ? (
             <XIcon
               onClick={() => setSearchStatus(false)}
-              className={`h-7 ml-5 cursor-pointer ${searchInput && 'hidden'}`}
+              className={`h-7 ml-5 hover:text-red-400 cursor-pointer ${
+                searchInput && 'hidden'
+              } button-clicked`}
             />
           ) : (
             <>
@@ -159,54 +171,56 @@ const Header = ({ placeholder, page }) => {
           )}
         </div>
 
-        {searchInput && (
-          <div className="flex flex-col col-span-3 mx-auto mt-5 bg-white p-5 rounded-xl">
-            <div className="hidden sm:inline-flex">
-              <DateRangePicker
-                ranges={[selectionRange]}
-                minDate={new Date()}
-                rangeColors={['#FD5B61']}
-                onChange={handleSelect}
-              />
-            </div>
-            <div className="inline-flex sm:hidden">
-              <DateRange
-                ranges={[selectionRange]}
-                minDate={new Date()}
-                rangeColors={['#fd5b61']}
-                onChange={handleSelect}
-              />
-            </div>
+        <div className="absolute md:w-[580px] top-20 md:left-[20%] lg:left-[30%] z-50">
+          {searchInput && (
+            <div className="flex flex-col col-span-3 mx-auto mt-5 bg-white p-5 rounded-xl">
+              <div className="hidden sm:inline-flex">
+                <DateRangePicker
+                  ranges={[selectionRange]}
+                  minDate={new Date()}
+                  rangeColors={['#FD5B61']}
+                  onChange={handleSelect}
+                />
+              </div>
+              <div className="inline-flex sm:hidden">
+                <DateRange
+                  ranges={[selectionRange]}
+                  minDate={new Date()}
+                  rangeColors={['#fd5b61']}
+                  onChange={handleSelect}
+                />
+              </div>
 
-            <div className="flex items-center border-b mb-4">
-              <h2 className="text-2xl flex-grow font-semibold">
-                Number of Guests
-              </h2>
-              <UsersIcon className="h-5" />
-              <input
-                type="number"
-                min={1}
-                value={noOfGuests}
-                onChange={(e) => setNoOfGuests(e.target.value)}
-                className="w-12 pl-2 text-lg ml-2 rounded-md text-red-400 outline-none"
-              />
+              <div className="flex items-center border-b mb-4">
+                <h2 className="text-2xl flex-grow font-semibold">
+                  Number of Guests
+                </h2>
+                <UsersIcon className="h-5" />
+                <input
+                  type="number"
+                  min={1}
+                  value={noOfGuests}
+                  onChange={(e) => setNoOfGuests(e.target.value)}
+                  className="w-12 pl-2 text-lg ml-2 rounded-md text-red-400 outline-none"
+                />
+              </div>
+              <div className="flex">
+                <button
+                  className="flex-grow text-gray-400 active:text-gray-600 button-clicked hover:font-semibold"
+                  onClick={resetInput}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={search}
+                  className="flex-grow text-red-400 active:text-red-600 button-clicked hover:font-semibold"
+                >
+                  Search
+                </button>
+              </div>
             </div>
-            <div className="flex">
-              <button
-                className="flex-grow text-gray-400 active:text-gray-600 button-clicked hover:font-semibold"
-                onClick={resetInput}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={search}
-                className="flex-grow text-red-400 active:text-red-600 button-clicked hover:font-semibold"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </header>
   );
