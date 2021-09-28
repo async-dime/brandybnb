@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { MenuIcon, UserCircleIcon } from '@heroicons/react/solid';
 
@@ -6,16 +6,34 @@ import Link from 'next/link';
 
 import { useAuth } from '@/lib/auth';
 
-const UserDropdown = () => {
+const UserDropdown = ({ page }) => {
   const { user, signOut } = useAuth();
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const buttonHeaderVar = `${
+    page !== 'Index' ? 'button-header' : `${scroll && 'button-header'}`
+  }`;
 
   return (
     <>
       {user ? (
         <>
           <Menu as="div" className="relative flex">
-            <Menu.Button className="flex items-center justify-center text-sm font-medium bg-transparent focus:outline-none space-x-0 sm:space-x-1 p-2 border-2 button-custom">
-              <MenuIcon className="h-6 w-6"/>
+            <Menu.Button className={`${buttonHeaderVar} flex items-center justify-center text-sm font-medium bg-transparent focus:outline-none space-x-0 sm:space-x-1 p-2 border-2 button-custom`}>
+              <MenuIcon className="h-6 w-6" />
               <img
                 src={user?.photoUrl}
                 alt="Picture of the user"
@@ -65,10 +83,13 @@ const UserDropdown = () => {
         </>
       ) : (
         <Menu>
-          <Menu.Button className="inline-flex justify-center text-sm font-medium bg-white focus:outline-none p-3 hover:bg-gray-100 button-custom">
+          <Menu.Button className={`${buttonHeaderVar} inline-flex justify-center text-sm font-medium focus:outline-none p-3 button-custom`}>
             <Link href="/dashboard">
               <a>
-                <UserCircleIcon aria-hidden="true" className="h-6 text-gray-500" />
+                <UserCircleIcon
+                  aria-hidden="true"
+                  className="h-6"
+                />
               </a>
             </Link>
           </Menu.Button>

@@ -166,7 +166,7 @@ const Header = ({ placeholder, page }) => {
               <div className={`button-custom p-0 sm:p-3 ${buttonHeaderVar}`}>
                 <GlobeAltIcon className="h-6" />
               </div>
-              <UserDropdown className={`${buttonHeaderVar}`} />
+              <UserDropdown page={page} />
             </>
           )}
         </div>
