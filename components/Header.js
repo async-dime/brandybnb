@@ -162,7 +162,7 @@ const Header = ({ placeholder, page }) => {
               <div className={`button-custom p-3 sm:p-0 ${buttonHeaderVar}`}>
                 <SearchIcon
                   onClick={() => setSearchStatus(true)}
-                  className="h-6 sm:hidden button-custom"
+                  className="h-6 sm:hidden"
                 />
               </div>
               <div className={`button-custom p-0 sm:p-3 ${buttonHeaderVar}`}>
