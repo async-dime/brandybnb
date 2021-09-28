@@ -9,6 +9,7 @@ import {
   XIcon
 } from '@heroicons/react/solid';
 import Image from 'next/image';
+import BrandybnbSvg from '@/assets/brandybnb.js';
 import UserDropdown from './UserDropdown';
 
 const Header = ({ placeholder, page }) => {
@@ -92,16 +93,17 @@ const Header = ({ placeholder, page }) => {
           onClick={() => router.push('/')}
           className={
             !searchStatus
-              ? 'flex relative items-center h-10 cursor-pointer my-auto'
+              ? 'flex relative items-center cursor-pointer my-auto'
               : 'hidden'
           }
         >
-          <Image
-            src="/brandybnb-logoall.svg"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="left"
+          <BrandybnbSvg
             alt="Brandybnb logo"
+            className={`object-left h-10 fill-current ${
+              page === 'Index'
+                ? `${!scroll ? 'text-white' : 'text-red-400'}`
+                : 'text-red-400'
+            }`}
           />
         </a>
 
