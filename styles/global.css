@@ -18,4 +18,10 @@
   .button-search-header {
     @apply h-8 bg-red-400 hover:bg-white text-white hover:text-red-400 rounded-full p-2 cursor-pointer hover:shadow-lg;
   }
+  .button-footer {
+    @apply hover:text-red-400 transition duration-200 ease-in-out cursor-pointer;
+  }
+  .link-hover {
+    @apply hover:underline cursor-pointer;
+  }
 }
