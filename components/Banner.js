@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Banner = ({ bgPicture }) => {
   return (
-    <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
+    <div className="flex items-center justify-center sm:block relative h-[650px] sm:h-[700px] lg:h-[750px] xl:[800px] 2xl:h-[850px] -mt-24">
       {bgPicture.map((picture, idx) => (
         <Image
           key={idx}
