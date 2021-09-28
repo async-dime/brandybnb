@@ -57,7 +57,7 @@ const Search = ({ searchResults }) => {
 
       <main className="flex">
         <section className="flex-grow overflow-scroll scrollbar-hide">
-          <div className=" pt-14 px-6">
+          <div className="pt-14 px-6">
             <p className="text-xs">
               300+ Stays | {range} | for {noOfGuests}{' '}
               {noOfGuests == 1 ? 'guest' : 'guests'}
@@ -75,7 +75,7 @@ const Search = ({ searchResults }) => {
           </div>
 
           <div className="flex flex-col bg-gray-100 px-6 my-5 space-y-5">
-            {searchResults.map((item, { _id }) => (
+            {searchResults.map((item, _id) => (
               <InfoCard key={_id} id={_id} {...item} />
             ))}
           </div>
