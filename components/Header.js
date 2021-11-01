@@ -8,7 +8,6 @@ import {
   UsersIcon,
   XIcon
 } from '@heroicons/react/solid';
-import Image from 'next/image';
 import BrandybnbSvg from '@/assets/brandybnb.js';
 import UserDropdown from './UserDropdown';
 
