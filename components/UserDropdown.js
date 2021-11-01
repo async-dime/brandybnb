@@ -85,12 +85,10 @@ const UserDropdown = ({ page }) => {
         <Menu>
           <Menu.Button className={`${buttonHeaderVar} inline-flex justify-center text-sm font-medium focus:outline-none p-3 button-custom`}>
             <Link href="/dashboard">
-              <a>
                 <UserCircleIcon
                   aria-hidden="true"
                   className="h-6"
                 />
-              </a>
             </Link>
           </Menu.Button>
         </Menu>
