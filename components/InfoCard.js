@@ -1,6 +1,7 @@
-import Image from 'next/image';
 import { HeartIcon } from '@heroicons/react/outline';
 import { StarIcon } from '@heroicons/react/solid';
+
+import Image from 'next/image';
 
 const InfoCard = ({
   img,
@@ -12,11 +13,11 @@ const InfoCard = ({
   total
 }) => {
   return (
-    <div className="flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t">
+    <div className="flex flex-col sm:flex-row items-center py-7 px-4 border-b-2 cursor-pointer hover:opacity-80 hover:shadow-lg space-y-5 sm:space-y-0 transition duration-200 ease-out first:border-t">
       {!img ? (
-        <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 bg-gray-200 rounded-2xl animate-pulse"/>
+        <div className="relative h-40 w-72 md:h-52 md:w-80 flex-shrink-0 bg-gray-200 rounded-2xl animate-pulse"/>
       ) : (
-        <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0">
+        <div className="relative h-40 w-72 md:h-52 md:w-80 flex-shrink-0">
           <Image
             src={img}
             alt={title}
@@ -27,13 +28,13 @@ const InfoCard = ({
         </div>
       )}
 
-      <div className="flex flex-col flex-grow pl-5">
+      <div className="flex flex-col flex-grow sm:pl-5">
         <div className="flex justify-between">
           <p>{location}</p>
           <HeartIcon className="h-7 cursor-pointer" />
         </div>
         <h4 className="text-xl">{title}</h4>
-        <div className="border w-10 pt-2" />
+        <div className="border-b pt-2" />
         <p className="pt-2 text-sm text-gray-500 flex-grow">{description}</p>
         <div className="flex justify-between items-end pt-5">
           <p className="flex items-center">

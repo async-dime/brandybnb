@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import { DateRangePicker, DateRange } from 'react-date-range';
+import { DateRange, DateRangePicker } from 'react-date-range';
+import { useEffect, useState } from 'react';
 import {
-  CheckIcon as ValidSearchIcon,
   GlobeAltIcon,
   SearchIcon,
   UsersIcon,
+  CheckIcon as ValidSearchIcon,
   XIcon
 } from '@heroicons/react/solid';
-import Image from 'next/image';
 import BrandybnbSvg from '@/assets/brandybnb.js';
 import UserDropdown from './UserDropdown';
 
@@ -77,13 +76,13 @@ const Header = ({ placeholder, page }) => {
             ? `grid grid-cols-2 sm:grid-cols-3 md:px-10 transition duration-300 ease-in-out bg-white shadow-md 
             ${
               !scroll &&
-              `${page == 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
+              `${page === 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
             } p-5 ${searchInput && '-mb-90'}`
             : `flex transition duration-300 ease-in-out bg-white ${
                 searchInput && 'flex-col -mb-90'
               } shadow-md ${
                 !scroll &&
-                `${page == 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
+                `${page === 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
               } p-5`
         }
       >
@@ -162,7 +161,7 @@ const Header = ({ placeholder, page }) => {
               <div className={`button-custom p-3 sm:p-0 ${buttonHeaderVar}`}>
                 <SearchIcon
                   onClick={() => setSearchStatus(true)}
-                  className="h-6 sm:hidden button-custom"
+                  className="h-6 sm:hidden"
                 />
               </div>
               <div className={`button-custom p-0 sm:p-3 ${buttonHeaderVar}`}>

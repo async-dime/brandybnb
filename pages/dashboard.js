@@ -1,15 +1,16 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+
+import { getCloudinaryPic } from './api/cloudinaryPic';
 import { useRouter } from 'next/dist/client/router';
 
 import Image from 'next/image';
-import { getCloudinaryPic } from './api/cloudinaryPic';
 
-import Page from '@/components/Page';
 import LoginButtons from '@/components/LoginButtons';
+import Page from '@/components/Page';
 
 const Dashboard = ({ cloudinaryPic }) => {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   function closeModal() {

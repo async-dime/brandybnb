@@ -7,6 +7,22 @@ cloudinary.v2.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+const fetchBase64 = async (url) => {
+  const buffer = await (await fetch(url)).arrayBuffer();
+  const base64 = await encode(buffer);
+  return base64;
+};
+
+const getThumbnail = (publicId) => {
+  const url = cloudinary.v2.url(publicId, {
+    gravity: 'face',
+    width: 200,
+    crop: 'thumb'
+  });
+
+  return url;
+};
+
   // get image by cloudinary tag
 export const getCloudinaryPic = async (tag) => {
   const { resources } = await cloudinary.v2.api.resources_by_tag(tag);
@@ -28,20 +44,4 @@ export const getCloudinaryPic = async (tag) => {
   }));
 
   return response;
-};
-
-const fetchBase64 = async (url) => {
-  const buffer = await (await fetch(url)).arrayBuffer();
-  const base64 = await encode(buffer);
-  return base64;
-};
-
-const getThumbnail = (publicId) => {
-  const url = cloudinary.v2.url(publicId, {
-    gravity: 'face',
-    width: 200,
-    crop: 'thumb'
-  });
-
-  return url;
 };

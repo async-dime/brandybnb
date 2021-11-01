@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+
 import { getCenter } from 'geolib';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 
 const Map = ({ searchResults, rating }) => {
   const [selectedLocation, setSelectedLocation] = useState({});
@@ -40,6 +42,7 @@ const Map = ({ searchResults, rating }) => {
               role="img"
               aria-label="push-pin"
               onClick={() => setSelectedLocation(result)}
+              onKeyPress={() => setSelectedLocation(result)}
               className="cursor-pointer text-2xl hover:animate-bounces"
             >
               <svg
@@ -87,7 +90,7 @@ const Map = ({ searchResults, rating }) => {
                   <p className="text-sm font-light">{result.location}</p>
                   <div className="flex items-center pt-4">
                     <p className="w-3">{Math.floor(result.star)}</p>
-                    {rating(parseInt(result.star))}
+                    {rating(parseInt(result.star, 10))}
                     <div className="relative ml-auto hover:opacity-90">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
