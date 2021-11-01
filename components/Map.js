@@ -40,6 +40,7 @@ const Map = ({ searchResults, rating }) => {
               role="img"
               aria-label="push-pin"
               onClick={() => setSelectedLocation(result)}
+              onKeyPress={() => setSelectedLocation(result)}
               className="cursor-pointer text-2xl hover:animate-bounces"
             >
               <svg
