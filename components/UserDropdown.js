@@ -3,6 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { MenuIcon, UserCircleIcon } from '@heroicons/react/solid';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useAuth } from '@/lib/auth';
 
@@ -30,65 +31,65 @@ const UserDropdown = ({ page }) => {
   return (
     <>
       {user ? (
-        <>
-          <Menu as="div" className="relative flex">
-            <Menu.Button className={`${buttonHeaderVar} flex items-center justify-center text-sm font-medium bg-transparent focus:outline-none space-x-0 sm:space-x-1 p-2 border-2 button-custom`}>
-              <MenuIcon className="h-6 w-6" />
-              <img
-                src={user?.photoUrl}
-                alt="Picture of the user"
-                class="mx-auto object-fill rounded-full h-6 w-6"
-              />
-            </Menu.Button>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="absolute right-0 mt-12 origin-top-left bg-white rounded-md shadow-lg focus:outline-none">
-                <div className="px-1 py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        onClick={() => signOut()}
-                        className={`${
-                          active
-                            ? 'bg-violet-500 text-red-400'
-                            : 'text-gray-500'
-                        } group flex rounded-md items-center px-1 py-2 text-sm`}
-                      >
-                        {active ? (
-                          <SignOutActiveIcon
-                            className="w-5 h-5 mr-2"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <SignOutInactiveIcon
-                            className="w-5 h-5 mr-2"
-                            aria-hidden="true"
-                          />
-                        )}
-                        Sign Out
-                      </button>
-                    )}
-                  </Menu.Item>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </>
+        <Menu as="div" className="relative flex">
+          <Menu.Button
+            className={`${buttonHeaderVar} flex items-center justify-center text-sm font-medium bg-transparent focus:outline-none space-x-0 sm:space-x-1 p-2 border-2 button-custom`}
+          >
+            <MenuIcon className="h-6 w-6" />
+            <Image
+              src={user?.photoUrl}
+              alt="Picture of the user"
+              layout="intrinsic"
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="absolute right-0 mt-12 origin-top-left bg-white rounded-md shadow-lg focus:outline-none">
+              <div className="px-1 py-1">
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      onClick={() => signOut()}
+                      className={`${
+                        active ? 'bg-violet-500 text-red-400' : 'text-gray-500'
+                      } group flex rounded-md items-center px-1 py-2 text-sm`}
+                    >
+                      {active ? (
+                        <SignOutActiveIcon
+                          className="w-5 h-5 mr-2"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <SignOutInactiveIcon
+                          className="w-5 h-5 mr-2"
+                          aria-hidden="true"
+                        />
+                      )}
+                      Sign Out
+                    </button>
+                  )}
+                </Menu.Item>
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
       ) : (
         <Menu>
-          <Menu.Button className={`${buttonHeaderVar} inline-flex justify-center text-sm font-medium focus:outline-none p-3 button-custom`}>
+          <Menu.Button
+            className={`${buttonHeaderVar} inline-flex justify-center text-sm font-medium focus:outline-none p-3 button-custom`}
+          >
             <Link href="/dashboard">
-                <UserCircleIcon
-                  aria-hidden="true"
-                  className="h-6"
-                />
+              <UserCircleIcon aria-hidden="true" className="h-6" />
             </Link>
           </Menu.Button>
         </Menu>
