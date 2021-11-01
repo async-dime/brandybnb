@@ -1,11 +1,11 @@
 import { format } from 'date-fns';
-import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/dist/client/router';
+import { NextSeo } from 'next-seo';
 
-import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import InfoCard from '@/components/InfoCard';
+import Map from '@/components/Map';
 import { StarIcon } from '@heroicons/react/solid';
 import { StarIcon as StarIconOutline } from '@heroicons/react/outline';
 

@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+
 import { getCenter } from 'geolib';
 import { useState } from 'react';
+
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 
 const Map = ({ searchResults, rating }) => {
   const [selectedLocation, setSelectedLocation] = useState({});

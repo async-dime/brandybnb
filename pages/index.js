@@ -2,8 +2,8 @@ import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LargeCard from '@/components/LargeCard';
-import SmallCard from '@/components/SmallCard';
 import MediumCard from '@/components/MediumCard';
+import SmallCard from '@/components/SmallCard';
 
 import { getCloudinaryPic } from './api/cloudinaryPic';
 

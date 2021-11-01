@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import { DateRangePicker, DateRange } from 'react-date-range';
+import { DateRange, DateRangePicker } from 'react-date-range';
+import { useEffect, useState } from 'react';
 import {
-  CheckIcon as ValidSearchIcon,
   GlobeAltIcon,
   SearchIcon,
   UsersIcon,
+  CheckIcon as ValidSearchIcon,
   XIcon
 } from '@heroicons/react/solid';
 import BrandybnbSvg from '@/assets/brandybnb.js';
