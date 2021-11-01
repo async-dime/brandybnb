@@ -88,7 +88,7 @@ const Map = ({ searchResults, rating }) => {
                   <p className="text-sm font-light">{result.location}</p>
                   <div className="flex items-center pt-4">
                     <p className="w-3">{Math.floor(result.star)}</p>
-                    {rating(parseInt(result.star))}
+                    {rating(parseInt(result.star, 10))}
                     <div className="relative ml-auto hover:opacity-90">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
