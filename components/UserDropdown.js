@@ -38,7 +38,7 @@ const UserDropdown = ({ page }) => {
             <MenuIcon className="h-6 w-6" />
             <Image
               src={user?.photoUrl}
-              alt="Picture of the user"
+              alt="avatar of user"
               layout="intrinsic"
               width={24}
               height={24}
