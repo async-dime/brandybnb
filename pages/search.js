@@ -51,7 +51,7 @@ const Search = ({ searchResults }) => {
       />
       <Header
         placeholder={`${location} - ${range} - ${noOfGuests} ${
-          noOfGuests == 1 ? 'guest' : 'guests'
+          noOfGuests === 1 ? 'guest' : 'guests'
         }`}
       />
 
@@ -60,7 +60,7 @@ const Search = ({ searchResults }) => {
           <div className="pt-14 px-6">
             <p className="text-xs">
               300+ Stays | {range} | for {noOfGuests}{' '}
-              {noOfGuests == 1 ? 'guest' : 'guests'}
+              {noOfGuests === 1 ? 'guest' : 'guests'}
             </p>
             <h1 className="text-3xl font-semibold mt-2 mb-6">
               Stays in {location}

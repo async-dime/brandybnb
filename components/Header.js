@@ -77,13 +77,13 @@ const Header = ({ placeholder, page }) => {
             ? `grid grid-cols-2 sm:grid-cols-3 md:px-10 transition duration-300 ease-in-out bg-white shadow-md 
             ${
               !scroll &&
-              `${page == 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
+              `${page === 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
             } p-5 ${searchInput && '-mb-90'}`
             : `flex transition duration-300 ease-in-out bg-white ${
                 searchInput && 'flex-col -mb-90'
               } shadow-md ${
                 !scroll &&
-                `${page == 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
+                `${page === 'Index' ? 'bg-transparent shadow-none' : 'bg-white'}`
               } p-5`
         }
       >

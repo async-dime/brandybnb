@@ -17,12 +17,7 @@ export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
           <h2 className="text-4xl font-semibold pb-4">Explore nearby</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {exploreData?.map((data, id) => (
-              <SmallCard
-                key={id}
-                img={data.img}
-                distance={data.distance}
-                location={data.location}
-              />
+              <SmallCard key={id} {...data} />
             ))}
           </div>
         </section>
@@ -31,7 +26,7 @@ export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
           <h2 className="text-4xl font-semibold pb-4">Live Anywhere</h2>
           <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
             {liveAnywhereData?.map((data, id) => (
-              <MediumCard key={id} img={data.img} title={data.title} />
+              <MediumCard key={id} {...data} />
             ))}
           </div>
         </section>
