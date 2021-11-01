@@ -9,7 +9,7 @@ import Page from '@/components/Page';
 import LoginButtons from '@/components/LoginButtons';
 
 const Dashboard = ({ cloudinaryPic }) => {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   function closeModal() {
