@@ -37,7 +37,7 @@ const UserDropdown = ({ page }) => {
               <img
                 src={user?.photoUrl}
                 alt="Picture of the user"
-                class="mx-auto object-fill rounded-full h-6 w-6"
+                className="mx-auto object-fill rounded-full h-6 w-6"
               />
             </Menu.Button>
             <Transition
