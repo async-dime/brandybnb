@@ -23,7 +23,7 @@ const Banner = ({ bgPicture }) => {
           Not sure where to go? Perfect.
         </p>
         <button className="text-purple-500 bg-white px-10 py-4 shadow-md rounded-full font-extrabold my-3 hover:shadow-xl button-clicked">
-          I'm flexible
+          I&#39;m flexible
         </button>
       </div>
     </div>

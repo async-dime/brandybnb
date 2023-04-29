@@ -14,7 +14,7 @@ const Search = ({ searchResults }) => {
   const { location, startDate, endDate, noOfGuests } = router.query;
 
   const title = `Brandybnb - Search in ${location}`;
-  const url = `https://brandybnb.vercel.app/search`;
+  const url = "https://brandybnb.vercel.app/search";
 
   const formattedStartDate = format(new Date(startDate), 'dd MMMM yy');
   const formattedEndDate = format(new Date(endDate), 'dd MMMM yy');
