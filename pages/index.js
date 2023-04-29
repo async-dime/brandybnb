@@ -45,11 +45,11 @@ export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
 }
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://bit.ly/explorebrandybnb').then(
+  const exploreData = await fetch('https://jsonkeeper.com/b/BXP5').then(
     (res) => res.json()
   );
 
-  const liveAnywhereData = await fetch('https://bit.ly/livebrandybnb').then(
+  const liveAnywhereData = await fetch('https://jsonkeeper.com/b/42YO').then(
     (res) => res.json()
   );
 
