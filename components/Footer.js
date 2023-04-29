@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link href="https://github.com/gilangadam/" target="_blank">
+            <Link href="https://github.com/async-dime/" target="_blank">
               <a>
                 <svg
                   className="button-footer"
