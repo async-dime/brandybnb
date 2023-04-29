@@ -51,7 +51,9 @@ const Footer = () => {
         <div className="flex items-center space-x-3">
           <p>{`Copyright © ${year}`}</p>
           <Link href="https://www.linkedin.com/in/gilang-adam/">
-            <a className="hover:underline">Gilang Adam</a>
+            <button className="text-blue-700 font-semibold py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+              Gilang Adam
+            </button>
           </Link>
         </div>
 
@@ -68,36 +70,41 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link href="https://github.com/async-dime/" target="_blank">
-              <a>
-                <svg
-                  className="button-footer"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 25 25"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-              </a>
-            </Link>
-            <Link href="https://gitlab.com/gilangadam" target="_blank">
-              <a className="h-6 w-6">
-                <svg
-                  className="bg-cover button-footer"
-                  viewBox="0 0 512 512"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M120.548 48.424c-2.785-7.996-14.104-7.996-16.979 0L52.813 205.457h118.583c-.09 0-50.848-157.033-50.848-157.033zM26.849 284.512c-2.336 7.188.271 15.183 6.379 19.765l222.703 165.296L52.722 205.457l-25.873 79.055zm144.457-79.055l84.715 264.115 84.715-264.115h-169.43zm313.883 79.055l-25.872-79.055-203.296 264.115 222.703-165.296c6.196-4.582 8.712-12.577 6.465-19.764zM408.471 48.424c-2.785-7.996-14.104-7.996-16.979 0l-50.848 157.033h118.584L408.471 48.424z" />
-                </svg>
-              </a>
-            </Link>
+            <button
+              onClick={() =>
+                window.open('https://github.com/async-dime/', '_blank')
+              }
+              className="button-footer"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 25 25"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+            </button>
+            <button
+              onClick={() =>
+                window.open('https://gitlab.com/gilangadam', '_blank')
+              }
+              className="h-6 w-6 button-footer"
+            >
+              <svg
+                className="bg-cover"
+                viewBox="0 0 512 512"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M120.548 48.424c-2.785-7.996-14.104-7.996-16.979 0L52.813 205.457h118.583c-.09 0-50.848-157.033-50.848-157.033zM26.849 284.512c-2.336 7.188.271 15.183 6.379 19.765l222.703 165.296L52.722 205.457l-25.873 79.055zm144.457-79.055l84.715 264.115 84.715-264.115h-169.43zm313.883 79.055l-25.872-79.055-203.296 264.115 222.703-165.296c6.196-4.582 8.712-12.577 6.465-19.764zM408.471 48.424c-2.785-7.996-14.104-7.996-16.979 0l-50.848 157.033h118.584L408.471 48.424z" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
