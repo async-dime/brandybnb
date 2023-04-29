@@ -1,12 +1,22 @@
 import { useAuth } from '@/lib/auth';
+import { useCallback } from 'react';
 
 const LoginButtons = () => {
   const auth = useAuth();
-
+  const handleClickGithub = useCallback(() => {
+    auth.signInWithGitHub('/');
+  }, [auth]);
+  const handleClickGoogle = useCallback(() => {
+    auth.signInWithGoogle('/');
+  }, [auth]);
+  const handleClickTwitter = useCallback(() => {
+    auth.signInWithTwitter('/');
+  }, [auth]);
+  
   return (
     <div className="flex flex-col">
       <button
-        onClick={() => auth.signInWithGitHub('/')}
+        onClick={handleClickGithub}
         type="button"
         className="py-2 px-4 mb-4 flex justify-center items-center bg-white hover:bg-gray-200 hover:shadow-md text-gray-800 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full button-clicked"
       >
@@ -26,7 +36,7 @@ const LoginButtons = () => {
         Github
       </button>
       <button
-        onClick={() => auth.signInWithGoogle('/')}
+        onClick={handleClickGoogle}
         type="button"
         className="py-2 px-4 mb-4 flex justify-center items-center bg-white hover:bg-gray-200 hover:shadow-md text-gray-800 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full  button-clicked"
       >
@@ -60,7 +70,7 @@ const LoginButtons = () => {
         Google
       </button>
       <button
-        onClick={() => auth.signInWithTwitter('/')}
+        onClick={handleClickTwitter}
         type="button"
         className="py-2 px-4 mb-6 flex justify-center items-center bg-white hover:bg-blue-100 hover:shadow-md text-blue-500 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full  button-clicked"
       >

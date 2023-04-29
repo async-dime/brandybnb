@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
-import { useRouter } from 'next/dist/client/router';
 import { NextSeo } from 'next-seo';
+import { useCallback } from 'react';
+import { useRouter } from 'next/dist/client/router';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -14,13 +15,17 @@ const Search = ({ searchResults }) => {
   const { location, startDate, endDate, noOfGuests } = router.query;
 
   const title = `Brandybnb - Search in ${location}`;
-  const url = "https://brandybnb.vercel.app/search";
+  const url = 'https://brandybnb.vercel.app/search';
 
   const formattedStartDate = format(new Date(startDate), 'dd MMMM yy');
   const formattedEndDate = format(new Date(endDate), 'dd MMMM yy');
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-  const starRating = (rating) => {
+  const renderInfoCard = useCallback((item, _id) => {
+    return <InfoCard key={_id} id={_id} {...item} />;
+  }, []);
+
+  const starRating = useCallback((rating) => {
     let star = Math.floor(rating);
     const output = [];
 
@@ -33,11 +38,11 @@ const Search = ({ searchResults }) => {
         );
       } else {
         star -= 1;
-        output.push(<StarIcon key={uid} className="h-5 text-red-400" />);
+        output.push(<StarIcon key={uid} className="h-4 text-brandy-500" />);
       }
     }
     return output;
-  };
+  }, []);
 
   return (
     <div>
@@ -75,9 +80,7 @@ const Search = ({ searchResults }) => {
           </div>
 
           <div className="flex flex-col bg-gray-100 px-6 my-5 space-y-5">
-            {searchResults.map((item, _id) => (
-              <InfoCard key={_id} id={_id} {...item} />
-            ))}
+            {searchResults.map(renderInfoCard)}
           </div>
         </section>
 
@@ -94,9 +97,9 @@ const Search = ({ searchResults }) => {
 export default Search;
 
 export async function getServerSideProps() {
-  const searchResults = await fetch('https://api.npoint.io/ed23299d0c93ffa722c3').then(
-    (res) => res.json()
-  );
+  const searchResults = await fetch(
+    'https://api.npoint.io/ed23299d0c93ffa722c3'
+  ).then((res) => res.json());
 
   return {
     props: {
