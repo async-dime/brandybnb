@@ -13,6 +13,7 @@
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "base64-arraybuffer": "^1.0.1",
+    "caniuse-lite": "^1.0.30001481",
     "cloudinary": "^1.27.0",
     "date-fns": "^2.23.0",
     "firebase": "^7.17.1",
