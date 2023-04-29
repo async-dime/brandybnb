@@ -45,11 +45,11 @@ export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
 }
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://jsonkeeper.com/b/BXP5').then(
+  const exploreData = await fetch('https://api.npoint.io/8e066d70f0eae14785d9').then(
     (res) => res.json()
   );
-
-  const liveAnywhereData = await fetch('https://jsonkeeper.com/b/42YO').then(
+  
+  const liveAnywhereData = await fetch('https://api.npoint.io/a4243de8dd81e6b2f7d6').then(
     (res) => res.json()
   );
 
