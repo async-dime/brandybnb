@@ -94,7 +94,7 @@ const Search = ({ searchResults }) => {
 export default Search;
 
 export async function getServerSideProps() {
-  const searchResults = await fetch('https://bit.ly/brandybnbsearch').then(
+  const searchResults = await fetch('https://bit.ly/searchbrandybnb').then(
     (res) => res.json()
   );
 

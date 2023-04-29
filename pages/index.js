@@ -45,11 +45,11 @@ export default function Home({ exploreData, liveAnywhereData, cloudinaryPic }) {
 }
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://bit.ly/brandybnbexplore').then(
+  const exploreData = await fetch('https://bit.ly/explorebrandybnb').then(
     (res) => res.json()
   );
 
-  const liveAnywhereData = await fetch('https://bit.ly/brandybnblive').then(
+  const liveAnywhereData = await fetch('https://bit.ly/livebrandybnb').then(
     (res) => res.json()
   );
 
